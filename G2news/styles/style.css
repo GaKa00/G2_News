@@ -1,0 +1,93 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --clr-main-blue: '#004AAD';
+    --ff-main-font: 'Roboto', sans-serif;
+}
+
+body {
+    width: 100%;
+    overflow-x: hidden;
+    font-family: var(--ff-main-font);
+}
+
+nav {
+    display: none;
+}
+
+header {
+    border-bottom: 1rem solid #004AAD;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    padding-bottom: 0;
+}
+#header-logo {
+    width: 4rem;
+}
+
+.title {
+    font-weight: 400;
+    text-shadow: 0px 5px 7px rgba(0, 0, 0, 0.68);
+}
+
+.fa-bars {
+    font-size: 2rem;
+    color: rgba(0, 0, 0, 0.67);
+    display: block;
+}
+
+.nav-list {
+    display: flex;
+    justify-content: flex-end;
+    gap: 2rem;
+    padding: .5rem;
+    padding-bottom: 0;
+    list-style: none;
+    margin-right: 2rem;
+}
+
+.nav-item {
+    text-decoration: none;
+    font-size: 1.3rem;
+}
+
+.searchbar {
+    width: 95%;
+    background: rgba(255, 255, 255, 0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 60px;
+    border-color: rgba(129, 96, 221);
+    border: 1px solid rgba(0, 0, 0, 0.67);
+    margin: .7rem;
+}
+.search-input {
+    /* width: 90%; */
+    background: transparent;
+    flex: 1;
+    border: none;
+    padding: 1rem .8rem;
+    font-size: 1rem;
+    color: black;
+    margin-left: 2rem;
+}
+
+.search-btn {
+    border: none;
+    border-radius: 50%;
+    font-size: 2rem;
+    color: rgba(0, 0, 0, 0.67);
+    background: none;
+} 
+
+.fa-magnifying-glass {
+    margin: .5rem;
+}

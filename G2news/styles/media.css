@@ -1,0 +1,9 @@
+@media (min-width: 650px) {
+    nav {
+        display: inherit;
+    }
+    .hamburger {
+        visibility: hidden;
+
+    }
+}
