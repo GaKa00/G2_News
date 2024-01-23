@@ -1,6 +1,7 @@
 const APIkey = "pub_36653feee246fd80e9b307f3259eff073c8d0"
+const newAPI = "26873f2efaf240bfab3a9b7a0053b43b"
 
-const newsLink =`https://newsdata.io/api/1/archive?apikey=${APIkey}=example&language=en`
+const newsLink =`https://newsapi.org/v2/everything?q=bitcoin&apiKey=${newAPI}`
 // `https://newsdata.io/api/1/news?apikey=${APIkey}`
 
 
