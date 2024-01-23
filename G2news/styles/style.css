@@ -37,10 +37,17 @@ header {
     text-shadow: 0px 5px 7px rgba(0, 0, 0, 0.68);
 }
 
-.fa-bars {
+.hamburger {
+    border: none;
+    background: none;
     font-size: 2rem;
     color: rgba(0, 0, 0, 0.67);
     display: block;
+}
+
+.hamburger:hover {
+    color: black;
+    cursor: pointer;
 }
 
 .nav-list {
