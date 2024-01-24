@@ -1,0 +1,17 @@
+.news-card {
+    border: 5px solid black;
+    width: 20vw;
+    height: auto;
+    
+
+
+}
+.news-card img {
+    background-color: red;
+    object-fit: cover;
+    max-width: 200px;
+    max-height: 200px;
+   
+    
+
+}
