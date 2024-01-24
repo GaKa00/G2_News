@@ -17,7 +17,7 @@ import axios from 'axios';
         console.log(response.data.articles.title);
         console.log(response.data.articles.content);
         container.innerHTML =  response.data.articles.map((article) => {
-             `<div class="news-card">
+            return `<div class="news-card">
         <img src="${article.urlToImage}" alt="" />
         <h1 class="card-title">${article.title}</h1>
         <p class="card-desc">
