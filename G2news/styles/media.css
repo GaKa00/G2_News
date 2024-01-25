@@ -9,10 +9,19 @@
     .nav-list {
         display: flex;
         justify-content: flex-end;
+        align-items: flex-start;
         gap: 2rem;
         padding: .5rem;
         padding-bottom: 0;
         list-style: none;
         margin-right: 2rem;
+        position: unset;
+        transform: translateY(0);
+        transition: transform 0;
+        z-index: 100;
+        background: none;
+        color: black;
+        list-style: none;
+        padding-top: .5rem;
     }
 }
