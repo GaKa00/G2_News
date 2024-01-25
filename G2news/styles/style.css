@@ -6,6 +6,7 @@
 
 :root {
     --clr-main-blue: #004AAD;
+    --clr-menu-blue: #004bade7;
     --ff-main-font: 'Roboto', sans-serif;
 }
 
@@ -50,6 +51,7 @@ header {
 
 #close-btn {
     display: none;
+    color: #fff;
 }
 
 /* nav {
@@ -58,25 +60,36 @@ header {
 .nav-list {
     position: fixed;
     transform: translateY(-100%);
-    transition: transform 0.2s;
     top: 0;
     left: 0;
     right: 0;
-    bottom: 0;
+    bottom: 60%;
+    border-bottom-left-radius: 5%;
+    border-bottom-right-radius: 5% ;
     z-index: 99;
-    background: rgba(255, 255, 255, 0.875);
-    color: var(--clr-main-blue);
+    background: var(--clr-menu-blue);
+    color: #fff;
     list-style: none;
     padding-top: 4rem;
+
 }
 
 .showMenu {
     transform: translateY(0);
 }
 
-.nav-item {
+.nav-item, .nav-btn {
     text-decoration: none;
     font-size: 1.3rem;
+}
+
+.nav-btn {
+    border: none;
+    background: none;
+    color: #fff;
+    font-size: 1.5rem;
+    line-height: 1.6;
+    margin-left: 3rem;
 }
 
 .searchbar {
