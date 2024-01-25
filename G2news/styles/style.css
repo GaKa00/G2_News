@@ -25,8 +25,8 @@ header {
     align-items: center;
     padding: 1rem;
     padding-bottom: 0;
-    position: sticky;
-    top: 0;
+    /* position: sticky;
+    top: 0; */
     background-color: #fff;
 
 }
@@ -86,6 +86,9 @@ header {
     text-decoration: none;
     font-size: 1.3rem;
 }
+.nav-item{
+    width: fit-content;
+}
 
 .nav-btn {
     border: none;
@@ -106,6 +109,7 @@ header {
     border-color: rgba(129, 96, 221);
     border: 1px solid rgba(0, 0, 0, 0.67);
     margin: .7rem;
+    
 }
 .search-input {
     /* width: 90%; */
@@ -116,6 +120,7 @@ header {
     font-size: 1rem;
     color: black;
     margin-left: 2rem;
+    outline: none;
 }
 
 .search-btn {
