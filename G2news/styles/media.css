@@ -10,18 +10,20 @@
         display: flex;
         justify-content: flex-end;
         align-items: flex-start;
-        gap: 2rem;
+        gap: 1rem;
         padding: .5rem;
         padding-bottom: 0;
         list-style: none;
-        margin-right: 2rem;
         position: unset;
-        transform: translateY(0);
-        transition: transform 0;
+        transform: none;
         z-index: 100;
         background: none;
-        color: black;
         list-style: none;
         padding-top: .5rem;
     }
+    .nav-btn {
+        color: #000;
+        margin-left: 2rem;
+    }
 }
+
