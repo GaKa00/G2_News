@@ -24,6 +24,10 @@ header {
     align-items: center;
     padding: 1rem;
     padding-bottom: 0;
+    position: sticky;
+    top: 0;
+    background-color: #fff;
+
 }
 #header-logo {
     width: 4rem;
