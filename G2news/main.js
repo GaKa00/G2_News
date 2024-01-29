@@ -1,5 +1,1 @@
-import { fetchData } from './Scripts/fetch.js';
-fetchData();
-
-import './Scripts/menu.js'
-
+import "./Scripts/fetch.js";
