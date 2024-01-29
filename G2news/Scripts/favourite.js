@@ -6,6 +6,8 @@ function favourite(event) {
         console.log("Fav button clicked");
         favIcon.classList.toggle("fa-regular");
         favIcon.classList.toggle("fa-solid");
+        const card = event.target.closest('.news-card');
+        card.classList.toggle("favourited")
     }
 }
 
