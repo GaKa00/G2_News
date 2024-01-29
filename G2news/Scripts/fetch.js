@@ -23,7 +23,7 @@ import axios from 'axios';
                 <p class="card-desc">
                     ${article.content}
                 </p>
-                <button class="fav-btn"> <i class="fa-regular fa-bookmark"></i></button>
+                <button class="fav-btn"> <i class="fa-regular fa-bookmark fav-icon"></i></button>
                 </div>`
         }
            ).join('');
