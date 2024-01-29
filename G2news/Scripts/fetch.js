@@ -21,7 +21,7 @@ import axios from 'axios';
         <img src="${article.urlToImage}" alt="" />
         <h1 class="card-title">${article.title}</h1>
         <p class="card-desc">
-        ${article.content}
+        ${article.content.replace(/(<([^>]+)>)/gi, "")}
         </p>
         </div>`
         }
