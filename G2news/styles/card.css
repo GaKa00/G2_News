@@ -1,6 +1,8 @@
 .news-card {
-    border: 5px solid black;
-    width: 20vw;
+    border: 1px solid black;
+    width: 100%;
+    padding: .5rem;
+    max-width: 800px;
     height: auto;
     
 

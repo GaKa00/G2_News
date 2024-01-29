@@ -18,12 +18,13 @@ import axios from 'axios';
         console.log(response.data.articles.content);
         container.innerHTML =  response.data.articles.map((article) => {
             return `<div class="news-card">
-        <img src="${article.urlToImage}" alt="" />
-        <h1 class="card-title">${article.title}</h1>
-        <p class="card-desc">
-        ${article.content}
-        </p>
-        </div>`
+                <img src="${article.urlToImage}" alt="" class="news-img" />
+                <h1 class="card-title">${article.title}</h1>
+                <p class="card-desc">
+                    ${article.content}
+                </p>
+                <button class="fav-btn"> <i class="fa-regular fa-bookmark"></i></button>
+                </div>`
         }
            ).join('');
 
