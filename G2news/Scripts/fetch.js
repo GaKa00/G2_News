@@ -21,12 +21,13 @@ import axios from 'axios';
                 <img src="${article.urlToImage}" alt="" class="news-img" />
                 <h1 class="card-title">${article.title}</h1>
                 <p class="card-desc">
-                    ${article.content}
+                    ${article.content.replace(/(<([^>]+)>)/gi, "")}
                 </p>
                 <button class="fav-btn"> <i class="fa-regular fa-bookmark fav-icon"></i></button>
                 </div>`
         }
            ).join('');
+         
 
 
         
