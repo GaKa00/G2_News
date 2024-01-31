@@ -1,16 +1,53 @@
-const container = document.querySelector('.news-card-container');
-function favourite(event) {
-    console.log("Event target:", event.target);
+function toggleFavourite(event) {
     if (event.target.matches('.fav-icon')) {
         const favIcon = event.target.closest('.fav-btn').querySelector('.fav-icon');
-        console.log("Fav button clicked");
         favIcon.classList.toggle("fa-regular");
         favIcon.classList.toggle("fa-solid");
+
         const card = event.target.closest('.news-card');
-        card.classList.toggle("favourited")
+        const cardData = {
+            id: card.dataset.cardId,
+            title: card.querySelector('.card-title').textContent,
+            imageUrl: card.querySelector('.news-img').src,
+            description: card.querySelector('.card-desc').textContent
+        };
+
+        let favouritesData = JSON.parse(localStorage.getItem('favourites')) || [];
+        const isFavourited = favouritesData.some(data => data.id === cardData.id);
+        if (isFavourited) {
+            favouritesData = favouritesData.filter(data => data.id !== cardData.id);
+        } else {
+            favouritesData.push(cardData);
+        }
+        localStorage.setItem('favourites', JSON.stringify(favouritesData));
     }
 }
 
-container.addEventListener("click", favourite);
+document.addEventListener("DOMContentLoaded", function () {
+    const favouritesContainer = document.querySelector('.favourites-card-container');
 
-export default favourite;
+    function displayFavourites() {
+        const favouritesData = JSON.parse(localStorage.getItem('favourites')) || [];
+        
+        if (favouritesContainer) {
+            favouritesContainer.innerHTML = '';
+
+            favouritesData.forEach(cardData => {
+                const cardHtml = `
+                    <div class="news-card" data-card-id="${cardData.id}">
+                        <img src="${cardData.imageUrl}" alt="" class="news-img" />
+                        <h1 class="card-title">${cardData.title}</h1>
+                        <p class="card-desc">${cardData.description}</p>
+                        <button class="fav-btn"> <i class="fa-regular fa-bookmark fav-icon"></i></button>
+                    </div>`;
+                favouritesContainer.insertAdjacentHTML('beforeend', cardHtml);
+            });
+        }
+    }
+
+    document.addEventListener("click", toggleFavourite);
+
+    displayFavourites();
+});
+
+export default toggleFavourite;

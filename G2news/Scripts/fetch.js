@@ -1,6 +1,8 @@
 let yesterday = new Date().getDate() -1;
 const container = document.querySelector('.news-card-container');
 
+let cardIdCounter = 0;
+
 const newAPI = "26873f2efaf240bfab3a9b7a0053b43b"
 
 const newsLink =`https://newsapi.org/v2/everything?domains=bbc.co.uk&from=${yesterday}&to=${yesterday}&apiKey=${newAPI}`
@@ -17,7 +19,9 @@ import axios from 'axios';
         console.log(response.data.articles.title);
         console.log(response.data.articles.content);
         container.innerHTML =  response.data.articles.map((article) => {
-            return `<div class="news-card">
+            cardIdCounter++;
+            const cardId = `card-${cardIdCounter}`;
+            return `<div class="news-card" data-card-id="${cardId}">
                 <img src="${article.urlToImage}" alt="" class="news-img" />
                 <h1 class="card-title">${article.title}</h1>
                 <p class="card-desc">
