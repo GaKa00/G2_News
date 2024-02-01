@@ -33,9 +33,11 @@ async function fetchData(query) {
             .map((article) => {
                 const cardId = `card-${article.id}`;
                 if ((article.index +1) % 3 === 0) {
-                    return `<div class="news-card third-news-card img">
+                    return `<div class="news-card third-news-card img" data-card-id="${cardId}>
                     <img src="${article.urlToImage}" alt="" />
                     <h1 class="card-title">${article.title}</h1>
+                    <button class="fav-btn"> <i class="fa-regular fa-bookmark fav-icon"></i></button>
+
                 </div>`
                 } else {
                     return `<div class="news-card" data-card-id="${cardId}">
