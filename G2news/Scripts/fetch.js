@@ -3,6 +3,16 @@ const newAPI = "26873f2efaf240bfab3a9b7a0053b43b";
 const container = document.querySelector(".news-card-container");
 const searchBar = document.querySelector(".search-input");
 const searchBtn = document.querySelector(".search-btn");
+const categories = document.querySelectorAll(".content-category");
+
+categories.forEach((category) => {
+  category.addEventListener("click", () => {
+    console.log(category.textContent);
+    const newsCategory = category.textContent;
+    console.log(newsCategory);
+    fetchData(undefined, newsCategory);
+  });
+});
 
 async function fetchData(query) {
   try {
@@ -41,7 +51,7 @@ function checkFilters(query, category) {
     //If neither category nor query is provided
     const Link = `https://newsapi.org/v2/everything?domains=bbc.co.uk&from=${yesterday}&to=${yesterday}&apiKey=${newAPI}`;
     return Link;
-  } else if (category) {
+  } else if (!query && category) {
     //If a category has been selected
     const Link = `https://newsapi.org/v2/top-headlines/sources?&country=gb&category=${category}&apiKey=${newAPI}`;
     return Link;
