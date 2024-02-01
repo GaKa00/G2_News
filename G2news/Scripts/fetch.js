@@ -6,46 +6,37 @@ const searchBtn = document.querySelector(".search-btn");
 const categories = document.querySelectorAll(".content-category");
 
 categories.forEach((category) => {
-  category.addEventListener("click", () => {
+  category.addEventListener("click", async function () {
     console.log(category.textContent);
     const newsCategory = category.textContent;
     console.log(newsCategory);
-    fetchData(undefined, newsCategory);
+    await fetchData("", newsCategory);
   });
 });
 
-async function fetchData(query) {
+async function fetchData(query, category) {
   try {
-    const newsLink = checkFilters(query);
+    const newsLink = checkFilters(query, category);
     console.log(newsLink);
     const response = await axios.get(newsLink);
     console.log(response.data.articles);
     container.innerHTML = response.data.articles
-      .map((article, index) => {
-        if ((index + 1) % 3 === 0) {
-          // Display only image and title for every third article
-          return `<div class="news-card third-news-card img">
-            <img src="${article.urlToImage}" alt="" />
-            <h1 class="card-title">${article.title}</h1>
-          </div>`;
-        } else {
-          return `<div class="news-card">
-            <img src="${article.urlToImage}" alt="" />
-            <h1 class="card-title">${article.title}</h1>
-            <p class="card-desc">
-            ${article.content.replace(/(<([^>]+)>)/gi, "")}
-            </p>
-          </div>`;
-        }
+      .map((article) => {
+        return `<div class="news-card">
+        <img src="${article.urlToImage}" alt="" />
+        <h1 class="card-title">${article.title}</h1>
+        <p class="card-desc">
+        ${article.content.replace(/(<([^>]+)>)/gi, "")} 
+        </p>
+        </div>`;
       })
-      .join("");
+      .join(" ");
   } catch (error) {
     console.error("Data could not be loaded:", error.message);
   }
 }
 
-
-fetchData();
+// fetchData();
 
 searchBtn.addEventListener("click", function (event) {
   event.preventDefault();
@@ -56,17 +47,17 @@ searchBtn.addEventListener("click", function (event) {
 // create an array with the categories
 
 function checkFilters(query, category) {
-  if (!query && !category) {
-    //If neither category nor query is provided
-    const Link = `https://newsapi.org/v2/everything?domains=bbc.co.uk&from=${yesterday}&to=${yesterday}&apiKey=${newAPI}`;
-    return Link;
-  } else if (!query && category) {
+  if (category) {
     //If a category has been selected
-    const Link = `https://newsapi.org/v2/top-headlines/sources?&country=gb&category=${category}&apiKey=${newAPI}`;
+    const Link = `https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=26873f2efaf240bfab3a9b7a0053b43b}`;
     return Link;
-  } else {
+  } else if (query) {
     //if  a searchquery has been provided
     const Link = `https://newsapi.org/v2/everything?q=${query}&domains=bbc.co.uk&from=${yesterday}&to=${yesterday}&apiKey=${newAPI}`;
+    return Link;
+  } else {
+    //If neither category nor query is provided
+    const Link = `https://newsapi.org/v2/everything?domains=bbc.co.uk&from=${yesterday}&to=${yesterday}&apiKey=${newAPI}`;
     return Link;
   }
 }
