@@ -43,7 +43,9 @@ async function fetchData(query) {
                     return `<div class="news-card" data-card-id="${cardId}">
                     <img src="${article.urlToImage}" class="news-img" alt="" />
                     <h1 class="card-title">${article.title}</h1>
-                    <p class="card-desc">${article.content}</p>
+                    <p class="card-desc">
+                    ${article.content.replace(/(<([^>]+)>)/gi, "")}
+                    </p>
                     <button class="fav-btn"> <i class="fa-regular fa-bookmark fav-icon"></i></button>
                     </div>`;
                 }
