@@ -21,20 +21,29 @@ async function fetchData(query) {
     const response = await axios.get(newsLink);
     console.log(response.data.articles);
     container.innerHTML = response.data.articles
-      .map((article) => {
-        return `<div class="news-card">
-        <img src="${article.urlToImage}" alt="" />
-        <h1 class="card-title">${article.title}</h1>
-        <p class="card-desc">
-        ${article.content.replace(/(<([^>]+)>)/gi, "")}
-        </p>
-        </div>`;
+      .map((article, index) => {
+        if ((index + 1) % 3 === 0) {
+          // Display only image and title for every third article
+          return `<div class="news-card third-news-card img">
+            <img src="${article.urlToImage}" alt="" />
+            <h1 class="card-title">${article.title}</h1>
+          </div>`;
+        } else {
+          return `<div class="news-card">
+            <img src="${article.urlToImage}" alt="" />
+            <h1 class="card-title">${article.title}</h1>
+            <p class="card-desc">
+            ${article.content.replace(/(<([^>]+)>)/gi, "")}
+            </p>
+          </div>`;
+        }
       })
       .join("");
   } catch (error) {
     console.error("Data could not be loaded:", error.message);
   }
 }
+
 
 fetchData();
 
