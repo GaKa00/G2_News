@@ -34,10 +34,18 @@
       <main class="main">
         <nav class="navbar">
           <ul class="nav-list">
-            <li class="nav-item">Item 1</li>
-            <li class="nav-item">Item 2</li>
-            <li class="nav-item">Item 3</li>
-          </ul>
+            <li class="nav-item"><button type="button" class="nav-btn">Home</button></li>
+            <li class="nav-item"><button type="button" class="nav-btn">Top News</button></li>
+            <li class="nav-item"><button type="button" class="nav-btn">My News</button></li>
+            <li class="nav-item">
+              <button type="button" class="nav-btn">Categories <i class="fa-solid fa-chevron-down"></i> </button>
+              <ul class="dropdown-content">
+                <li><a href="#">Category 1</a></li>
+                <li><a href="#">Category 2</a></li>
+                <li><a href="#">Category 3</a></li>
+                <!-- Add more categories as needed -->
+              </ul>
+            </li>
         </nav>
 
         <form class="searchbar">

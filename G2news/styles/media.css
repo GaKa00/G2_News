@@ -9,10 +9,24 @@
     .nav-list {
         display: flex;
         justify-content: flex-end;
-        gap: 2rem;
-        padding: .5rem;
+        align-items: flex-start;
+        gap: 1rem;
+        padding: 2rem;
         padding-bottom: 0;
         list-style: none;
-        margin-right: 2rem;
+        position: unset;
+        transform: none;
+        z-index: 100;
+        background: none;
+        list-style: none;
+        padding-top: .5rem;
     }
+    .nav-btn {
+        color: #000;
+        margin-left: 2rem;
+    }
+    .dropdown-content a {
+       color: #000;
+      }
 }
+

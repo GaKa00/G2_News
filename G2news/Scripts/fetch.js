@@ -16,7 +16,7 @@ async function fetchData(query) {
         <img src="${article.urlToImage}" alt="" />
         <h1 class="card-title">${article.title}</h1>
         <p class="card-desc">
-        ${article.content}
+        ${article.content.replace(/(<([^>]+)>)/gi, "")}
         </p>
         </div>`;
       })
@@ -25,6 +25,7 @@ async function fetchData(query) {
     console.error("Data could not be loaded:", error.message);
   }
 }
+
 fetchData();
 
 searchBtn.addEventListener("click", function (event) {
@@ -50,7 +51,6 @@ function checkFilters(query, category) {
     return Link;
   }
 }
-
 //get query and category choice
 
 // `https://newsdata.io/api/1/news?apikey=${APIkey}`

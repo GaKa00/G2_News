@@ -6,6 +6,7 @@
 
 :root {
     --clr-main-blue: #004AAD;
+    --clr-menu-blue: #004bade7;
     --ff-main-font: 'Roboto', sans-serif;
 }
 
@@ -24,6 +25,10 @@ header {
     align-items: center;
     padding: 1rem;
     padding-bottom: 0;
+    /* position: sticky;
+    top: 0; */
+    background-color: #fff;
+
 }
 #header-logo {
     width: 4rem;
@@ -50,6 +55,7 @@ header {
 
 #close-btn {
     display: none;
+    color: #fff;
 }
 
 /* nav {
@@ -57,26 +63,75 @@ header {
 } */
 .nav-list {
     position: fixed;
-    transform: translateY(-100%);
-    transition: transform 0.2s;
+    transform: translateY(-150%);
     top: 0;
     left: 0;
     right: 0;
-    bottom: 0;
+    bottom: 60%;
+    border-bottom-left-radius: 5%;
+    border-bottom-right-radius: 5% ;
     z-index: 99;
-    background: rgba(255, 255, 255, 0.875);
-    color: var(--clr-main-blue);
+    background: var(--clr-menu-blue);
+    color: #fff;
     list-style: none;
     padding-top: 4rem;
+
 }
+
+.nav-item {
+    position: relative;
+  }
+  
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    top: 100%;
+    padding: .5rem;
+    right: 0;
+    background: #fff;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 12px 28px 0px, rgba(0, 0, 0, 0.1) 0px 2px 4px 0px, rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset;
+    border-radius: 10%;
+    font-size: 1.5rem;
+  }
+  
+  .nav-item:hover .dropdown-content,
+  .nav-item:focus-within .dropdown-content {
+    display: block;
+  }
+  
+  .dropdown-content li {
+    margin:1rem;
+    list-style: none;
+  }
+  
+  .dropdown-content a {
+    text-decoration: none;
+   color: var(--clr-menu-blue);
+  }
+  
+  .dropdown-content a:hover {
+    text-decoration: underline;
+  }
 
 .showMenu {
     transform: translateY(0);
 }
 
-.nav-item {
+.nav-item, .nav-btn {
     text-decoration: none;
     font-size: 1.3rem;
+}
+.nav-item{
+    width: fit-content;
+}
+
+.nav-btn {
+    border: none;
+    background: none;
+    color: #fff;
+    font-size: 1.5rem;
+    line-height: 1.6;
+    margin-left: 3rem;
 }
 
 .searchbar {
@@ -89,6 +144,7 @@ header {
     border-color: rgba(129, 96, 221);
     border: 1px solid rgba(0, 0, 0, 0.67);
     margin: .7rem;
+    
 }
 .search-input {
     /* width: 90%; */
@@ -99,6 +155,7 @@ header {
     font-size: 1rem;
     color: black;
     margin-left: 2rem;
+    outline: none;
 }
 
 .search-btn {
