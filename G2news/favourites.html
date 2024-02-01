@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <link rel="icon" type="image/jpg" href="./images/logo.jpg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="styles/style.css" />
     <link rel="stylesheet" href="styles/media.css" />
@@ -29,7 +29,7 @@
   <body>
     <div id="app">
       <header class="header">
-        <a href="/G2news/"><img src="images/logo.jpg" alt="G2 Logo" id="header-logo" /></a>
+        <a href="index.html"><img src="images/logo.jpg" alt="G2 Logo" id="header-logo" /></a>
         <h1 class="title">NEWS</h1>
         <button type="button" class="hamburger">
           <i class="fa-solid fa-bars" id="menu-btn"></i>
@@ -53,7 +53,17 @@
             </li>
           </ul>
         </nav>
-
+         <form class="searchbar">
+          <input
+            type="text"
+            placeholder="Search..."
+            name="search-input"
+            class="search-input"
+          />
+          <button type="submit" class="search-btn">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </button>
+        </form> 
 
         <h2>My News</h2>
 
