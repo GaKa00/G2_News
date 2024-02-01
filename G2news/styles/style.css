@@ -63,7 +63,7 @@ header {
 } */
 .nav-list {
     position: fixed;
-    transform: translateY(-100%);
+    transform: translateY(-150%);
     top: 0;
     left: 0;
     right: 0;
@@ -86,11 +86,10 @@ header {
     display: none;
     position: absolute;
     top: 100%;
-    margin-top: .5rem;
     padding: .5rem;
     right: 0;
     background: #fff;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 12px 28px 0px, rgba(0, 0, 0, 0.1) 0px 2px 4px 0px, rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset;
     border-radius: 10%;
     font-size: 1.5rem;
   }
