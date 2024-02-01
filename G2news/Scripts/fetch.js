@@ -1,26 +1,25 @@
-let yesterday = new Date().getDate() -1;
-const container = document.querySelector('.news-card-container');
-
-let cardIdCounter = 0;
-
-const newAPI = "26873f2efaf240bfab3a9b7a0053b43b"
-
-const newsLink =`https://newsapi.org/v2/everything?domains=bbc.co.uk&from=${yesterday}&to=${yesterday}&apiKey=${newAPI}`
-// `https://newsdata.io/api/1/news?apikey=${APIkey}`
-
-
-
+import { v4 as uuidv4 } from 'uuid';
 import axios from 'axios';
 
-   export async function fetchData() {
+const container = document.querySelector('.news-card-container');
+
+const newAPI = "26873f2efaf240bfab3a9b7a0053b43b";
+const yesterday = new Date().getDate() - 1;
+const newsLink = `https://newsapi.org/v2/everything?domains=bbc.co.uk&from=${yesterday}&to=${yesterday}&apiKey=${newAPI}`;
+
+export async function fetchData() {
     try {
         const response = await axios.get(newsLink);
-        console.log(response.data.articles);
-        console.log(response.data.articles.title);
-        console.log(response.data.articles.content);
-        container.innerHTML =  response.data.articles.map((article) => {
-            cardIdCounter++;
-            const cardId = `card-${cardIdCounter}`;
+        const articles = response.data.articles;
+
+        // Generate UUIDs for each article
+        articles.forEach(article => {
+            article.id = uuidv4();
+        });
+
+        // Display articles in the container
+        container.innerHTML = articles.map(article => {
+            const cardId = `card-${article.id}`;
             return `<div class="news-card" data-card-id="${cardId}">
                 <img src="${article.urlToImage}" alt="" class="news-img" />
                 <h1 class="card-title">${article.title}</h1>
@@ -28,18 +27,14 @@ import axios from 'axios';
                     ${article.content.replace(/(<([^>]+)>)/gi, "")}
                 </p>
                 <button class="fav-btn"> <i class="fa-regular fa-bookmark fav-icon"></i></button>
-                </div>`
-        }
-           ).join('');
-         
+                </div>`;
+        }).join('');
 
-
-        
-        
     } catch (error) {
         console.error('Data could not be loaded:', error.message);
     }
 }
+
 
 
 
