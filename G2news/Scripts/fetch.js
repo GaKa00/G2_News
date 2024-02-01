@@ -23,38 +23,37 @@ async function fetchData(query) {
         console.log(newsLink);
         const response = await axios.get(newsLink);
         const articles = response.data.articles;
-        
-        articles.forEach(article => {
+
+        articles.forEach((article, index) => {
             article.id = uuidv4();
+            article.index = index;
         });
-        
+
         console.log(response.data.articles);
         container.innerHTML = articles
             .map((article) => {
                 const cardId = `card-${article.id}`;
-                if ((article.index +1) % 3 === 0) {
-                    return `<div class="news-card third-news-card img" data-card-id="${cardId}>
-                    <img src="${article.urlToImage}" alt="" />
-                    <h1 class="card-title">${article.title}</h1>
-                    <button class="fav-btn"> <i class="fa-regular fa-bookmark fav-icon"></i></button>
-
-                </div>`
+                if ((article.index + 1) % 3 === 0) {
+                    return `<div class="news-card third-news-card img" data-card-id="${cardId}">
+                        <img src="${article.urlToImage}" alt="" />
+                        <h1 class="card-title">${article.title}</h1>
+                        <button class="fav-btn"> <i class="fa-regular fa-bookmark fav-icon"></i></button>
+                    </div>`;
                 } else {
                     return `<div class="news-card" data-card-id="${cardId}">
-                    <img src="${article.urlToImage}" class="news-img" alt="" />
-                    <h1 class="card-title">${article.title}</h1>
-                    <p class="card-desc">
-                    ${article.content.replace(/(<([^>]+)>)/gi, "")}
-                    </p>
-                    <button class="fav-btn"> <i class="fa-regular fa-bookmark fav-icon"></i></button>
+                        <img src="${article.urlToImage}" class="news-img" alt="" />
+                        <h1 class="card-title">${article.title}</h1>
+                        <p class="card-desc">${article.content.replace(/(<([^>]+)>)/gi, "")}</p>
+                        <button class="fav-btn"> <i class="fa-regular fa-bookmark fav-icon"></i></button>
                     </div>`;
                 }
             })
             .join("");
-                } catch (error) {
-                    console.error("Data could not be loaded:", error.message);
-                }
-            }
+    } catch (error) {
+        console.error("Data could not be loaded:", error.message);
+    }
+}
+
 
 searchBtn.addEventListener("click", function (event) {
     event.preventDefault();
