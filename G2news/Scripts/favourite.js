@@ -42,6 +42,18 @@ document.addEventListener("DOMContentLoaded", function () {
                     </div>`;
                 favouritesContainer.insertAdjacentHTML('beforeend', cardHtml);
             });
+
+            // Update favorite icons based on local storage data
+            const favButtons = document.querySelectorAll('.fav-btn');
+            favButtons.forEach(button => {
+                const cardId = button.closest('.news-card').dataset.cardId;
+                const isFavourite = favouritesData.some(data => data.id === cardId);
+                const favIcon = button.querySelector('.fav-icon');
+                if (isFavourite) {
+                    favIcon.classList.add('fa-solid');
+                    favIcon.classList.remove('fa-regular');
+                }
+            });
         }
     }
 
