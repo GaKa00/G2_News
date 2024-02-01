@@ -21,19 +21,26 @@ async function fetchData(query) {
         console.log(response.data.articles);
         container.innerHTML = articles
             .map((article) => {
-                const cardId = `card-${article.id}`;
-                return `<div class="news-card" data-card-id="${cardId}">
+//                 if ((index +1) % 3 === 0) {
+//                     return `<div class="news-card third-news-card img">
+//                     <img src="${article.urlToImage}" alt="" />
+//                     <h1 class="card-title">${article.title}</h1>
+//                 </div>
+// `
+//                 }
+                    const cardId = `card-${article.id}`;
+                    return `<div class="news-card" data-card-id="${cardId}">
                     <img src="${article.urlToImage}" class="news-img" alt="" />
                     <h1 class="card-title">${article.title}</h1>
                     <p class="card-desc">${article.content}</p>
                     <button class="fav-btn"> <i class="fa-regular fa-bookmark fav-icon"></i></button>
-                </div>`;
-            })
-            .join("");
-    } catch (error) {
-        console.error("Data could not be loaded:", error.message);
-    }
-}
+                    </div>`;
+                })
+                .join("");
+            } catch (error) {
+                console.error("Data could not be loaded:", error.message);
+            }
+        }
 
 searchBtn.addEventListener("click", function (event) {
     event.preventDefault();
