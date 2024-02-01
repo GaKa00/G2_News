@@ -20,3 +20,15 @@
     height: 100%;
     max-height: 500px;
 }
+
+.main {
+    display: grid;
+    grid-template-columns: 70% 30%;
+    gap: 1rem;
+}
+
+.sports-news {
+    padding: 1rem;
+    border-left: 1px solid black;
+
+}
