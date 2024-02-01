@@ -5,7 +5,7 @@ let yesterday = new Date().getDate() - 1;
 const newAPI = "26873f2efaf240bfab3a9b7a0053b43b";
 const container = document.querySelector(".news-card-container");
 const searchBar = document.querySelector(".search-input");
-const searchBtn = document.querySelector(".search-btn");
+let searchBtn = document.querySelector(".search-btn");
 
 async function fetchData(query) {
     try {
@@ -21,26 +21,26 @@ async function fetchData(query) {
         console.log(response.data.articles);
         container.innerHTML = articles
             .map((article) => {
-//                 if ((index +1) % 3 === 0) {
-//                     return `<div class="news-card third-news-card img">
-//                     <img src="${article.urlToImage}" alt="" />
-//                     <h1 class="card-title">${article.title}</h1>
-//                 </div>
-// `
-//                 }
-                    const cardId = `card-${article.id}`;
+                const cardId = `card-${article.id}`;
+                if ((article.index +1) % 3 === 0) {
+                    return `<div class="news-card third-news-card img">
+                    <img src="${article.urlToImage}" alt="" />
+                    <h1 class="card-title">${article.title}</h1>
+                </div>`
+                } else {
                     return `<div class="news-card" data-card-id="${cardId}">
                     <img src="${article.urlToImage}" class="news-img" alt="" />
                     <h1 class="card-title">${article.title}</h1>
                     <p class="card-desc">${article.content}</p>
                     <button class="fav-btn"> <i class="fa-regular fa-bookmark fav-icon"></i></button>
                     </div>`;
-                })
-                .join("");
-            } catch (error) {
-                console.error("Data could not be loaded:", error.message);
+                }
+            })
+            .join("");
+                } catch (error) {
+                    console.error("Data could not be loaded:", error.message);
+                }
             }
-        }
 
 searchBtn.addEventListener("click", function (event) {
     event.preventDefault();
@@ -49,7 +49,7 @@ searchBtn.addEventListener("click", function (event) {
 });
 
 document.addEventListener("DOMContentLoaded", function () {
-    searchBtn = document.querySelector(".search-btn"); // Assign the variable inside the DOMContentLoaded event listener
+    searchBtn = document.querySelector(".search-btn"); 
     searchBtn.addEventListener("click", function (event) {
         event.preventDefault();
         const searchQuery = searchBar.value;
