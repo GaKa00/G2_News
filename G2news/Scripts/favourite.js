@@ -8,7 +8,7 @@ function toggleFavourite(event) {
         const cardData = {
             id: card.dataset.cardId,
             title: card.querySelector('.card-title').textContent,
-            imageUrl: card.querySelector('.news-img').src,
+            imageUrl: card.querySelector('.news-img') ? card.querySelector('.news-img').src : '', // Check if .news-img exists
             description: card.querySelector('.card-desc').textContent
         };
 
