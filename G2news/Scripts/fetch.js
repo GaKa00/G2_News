@@ -10,13 +10,13 @@ categories.forEach((category) => {
     console.log(category.textContent);
     const newsCategory = category.textContent;
     console.log(newsCategory);
-    await fetchData("", newsCategory);
+    await fetchData(newsCategory);
   });
 });
 
-async function fetchData(query, category) {
+async function fetchData(query) {
   try {
-    const newsLink = checkFilters(query, category);
+    const newsLink = checkFilters(query);
     console.log(newsLink);
     const response = await axios.get(newsLink);
     console.log(response.data.articles);
@@ -36,7 +36,7 @@ async function fetchData(query, category) {
   }
 }
 
-// fetchData();
+fetchData();
 
 searchBtn.addEventListener("click", function (event) {
   event.preventDefault();
@@ -46,12 +46,8 @@ searchBtn.addEventListener("click", function (event) {
 
 // create an array with the categories
 
-function checkFilters(query, category) {
-  if (category) {
-    //If a category has been selected
-    const Link = `https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=26873f2efaf240bfab3a9b7a0053b43b}`;
-    return Link;
-  } else if (query) {
+function checkFilters(query) {
+  if (query) {
     //if  a searchquery has been provided
     const Link = `https://newsapi.org/v2/everything?q=${query}&domains=bbc.co.uk&from=${yesterday}&to=${yesterday}&apiKey=${newAPI}`;
     return Link;
