@@ -20,6 +20,13 @@ async function fetchData(query) {
     console.log(newsLink);
     const response = await axios.get(newsLink);
     console.log(response.data.articles);
+    function getFirstSentence(content) {
+      const sentences = content.split(/[.!?]/);
+      // Take the first sentence
+      const firstSentence = sentences[0];
+      return firstSentence;
+    }
+    
     container.innerHTML = response.data.articles
       .map((article, index) => {
         if ((index + 1) % 3 === 0) {
@@ -33,8 +40,10 @@ async function fetchData(query) {
             <img src="${article.urlToImage}" alt="" />
             <h1 class="card-title">${article.title}</h1>
             <p class="card-desc">
-            ${article.content.replace(/(<([^>]+)>)/gi, "")}
-            </p>
+              ${getFirstSentence(article.content.replace(/(<([^>]+)>)/gi, ""))}
+              <a href="${article.url}" target="_blank" class="read-more">Read more..</a>
+              </p>
+         
           </div>`;
         }
       })
