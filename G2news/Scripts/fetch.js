@@ -24,7 +24,7 @@ async function fetchData(query) {
       .map((article, index) => {
         if ((index + 1) % 3 === 0) {
           // Display only image and title for every third article
-          return `<div class="news-card third-news-card img">
+          return `<div class="third-news-card ">
             <img src="${article.urlToImage}" alt="" />
             <h1 class="card-title">${article.title}</h1>
           </div>`;
