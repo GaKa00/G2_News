@@ -1,7 +1,8 @@
 @media (min-width: 1000px) {
     .third-news-card h1 {
         font-size: 2rem;
-    color: rebeccapurple;
+        color:var(--clr-main-blue);
+  
      }
       
 }
@@ -15,18 +16,17 @@
 
 @media (min-width: 880px) {
     .news-card {
-        width: 60%;
+       
         padding: 1rem 2rem;
         
     }
     
-  .sport-news {
+  .ads-news {
     display: flex; 
     flex-direction: column;
     border: 1px solid black;
-    width: 70%;
+    min-width: 300px;
     height: auto;
-    margin-left: 1rem;
     padding: 1rem;
  
 }
@@ -82,7 +82,7 @@
 
 
 @media (max-width: 879px) {
-  .sport-news {
+  .ads-news {
     display: none; 
 }
 }

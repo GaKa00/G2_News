@@ -81,7 +81,7 @@ header {
 .nav-item {
     position: relative;
   }
-  
+
   .dropdown-content {
     display: none;
     position: absolute;
@@ -132,6 +132,9 @@ header {
     font-size: 1.5rem;
     line-height: 1.6;
     margin-left: 3rem;
+}
+.nav-btn:hover{
+    text-decoration: underline;
 }
 
 .searchbar {
