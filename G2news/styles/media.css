@@ -33,6 +33,12 @@
 }
 
 @media (min-width: 655px) {
+
+header {
+    border-bottom: none;
+   
+
+}
     nav {
         display: inherit;
     }
@@ -53,14 +59,19 @@
         z-index: 100;
         background: none;
         list-style: none;
-        padding-top: .5rem;
+        padding: 1rem;
+        background-color: var(--clr-main-blue); 
     }
+
     .nav-btn {
         color: #000;
         margin-left: 2rem;
+         color: #fff;
     }
+
     .dropdown-content a {
        color: #000;
+
       }
 }
 @media (min-width: 550px) {

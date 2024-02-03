@@ -33,7 +33,9 @@ async function fetchData(query) {
           // Display only image and title for every third article
           return `<div class="third-news-card ">
             <img src="${article.urlToImage}" alt="" />
+            <a href="${article.url}" target="_blank">
             <h1 class="card-title">${article.title}</h1>
+          </a>
           </div>`;
         } else {
           return `<div class="news-card">
