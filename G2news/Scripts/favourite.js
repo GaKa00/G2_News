@@ -10,15 +10,12 @@ function toggleFavourite(event) {
         const existingIndex = favouritesData.findIndex(data => data.title === cardTitle);
         
         if (existingIndex !== -1) {
-            // Article with the same title exists, remove it
+            // if an article with same title exists in LS, remove it! 
             favouritesData.splice(existingIndex, 1);
-            localStorage.setItem('favourites', JSON.stringify(favouritesData));
-
-            // Toggle icon to regular (not favorited)
             favIcon.classList.remove("fa-solid");
             favIcon.classList.add("fa-regular");
         } else {
-            // Article does not exist, add it to favorites
+            // If it does not exist in LS, add it!
             const cardData = {
                 id: cardId,
                 title: cardTitle,
@@ -26,19 +23,16 @@ function toggleFavourite(event) {
                 description: card.querySelector('.card-desc') ? card.querySelector('.card-desc').textContent : ''
             };
             favouritesData.push(cardData);
-            localStorage.setItem('favourites', JSON.stringify(favouritesData));
-
-            // Toggle icon to solid (favorited)
             favIcon.classList.remove("fa-regular");
             favIcon.classList.add("fa-solid");
         }
 
-        // Update all favorite icons on the page based on localStorage data
+        localStorage.setItem('favourites', JSON.stringify(favouritesData));
         updateFavoriteIcons();
     }
 }
 
-function updateFavoriteIcons() {
+export function updateFavoriteIcons() {
     const favButtons = document.querySelectorAll('.fav-icon');
     const favouritesData = JSON.parse(localStorage.getItem('favourites')) || [];
 
@@ -72,36 +66,11 @@ function displayFavourites() {
                 </div>`;
             favouritesContainer.insertAdjacentHTML('beforeend', cardHtml);
         });
-
-        // Update favorite icons based on local storage data
-        const favButtons = document.querySelectorAll('.fav-btn');
-        favButtons.forEach(button => {
-            const cardId = button.closest('.news-card').dataset.cardId;
-            const isFavourite = favouritesData.some(data => data.id === cardId);
-            const favIcon = button.querySelector('.fav-icon');
-            if (isFavourite) {
-                favIcon.classList.add('fa-solid');
-                favIcon.classList.remove('fa-regular');
-            }
-        });
     }
 }
-
-function initFavouriteButtonEventListeners() {
-    // Event listener for toggling favorites
-    document.querySelectorAll('.fav-btn').forEach(button => {
-        button.addEventListener('click', toggleFavourite);
-    });
-}
-
-// Call updateFavoriteIcons when the page loads to ensure proper initialization
-updateFavoriteIcons();
 
 document.addEventListener("DOMContentLoaded", function () {
     document.addEventListener("click", toggleFavourite);
     displayFavourites();
-    initFavouriteButtonEventListeners();
-    
+    updateFavoriteIcons();
 });
-
-// export default toggleFavourite;

@@ -1,5 +1,6 @@
 import { v4 as uuidv4 } from 'uuid';
 import axios from 'axios';
+import { updateFavoriteIcons } from './favourite';
 
 let yesterday = new Date().getDate() - 1;
 const newAPI = "26873f2efaf240bfab3a9b7a0053b43b";
@@ -9,12 +10,12 @@ let searchBtn = document.querySelector(".search-btn");
 const categories = document.querySelectorAll(".content-category");
 
 categories.forEach((category) => {
-  category.addEventListener("click", () => {
-    console.log(category.textContent);
-    const newsCategory = category.textContent;
-    console.log(newsCategory);
-    fetchData(undefined, newsCategory);
-  });
+    category.addEventListener("click", () => {
+        console.log(category.textContent);
+        const newsCategory = category.textContent;
+        console.log(newsCategory);
+        fetchData(undefined, newsCategory);
+    });
 });
 
 async function fetchData(query) {
@@ -23,32 +24,33 @@ async function fetchData(query) {
         console.log(newsLink);
         const response = await axios.get(newsLink);
         const articles = response.data.articles;
-
+        
         articles.forEach((article, index) => {
             article.id = uuidv4();
             article.index = index;
         });
-
+        
         console.log(response.data.articles);
         container.innerHTML = articles
-            .map((article) => {
-                const cardId = `card-${article.id}`;
-                if ((article.index + 1) % 3 === 0) {
-                    return `<div class="news-card third-news-card img" data-card-id="${cardId}">
-                        <img src="${article.urlToImage}" alt="" />
-                        <h1 class="card-title">${article.title}</h1>
-                        <button class="fav-btn"> <i class="fa-regular fa-bookmark fav-icon"></i></button>
-                    </div>`;
-                } else {
-                    return `<div class="news-card" data-card-id="${cardId}">
-                        <img src="${article.urlToImage}" class="news-img" alt="" />
-                        <h1 class="card-title">${article.title}</h1>
-                        <p class="card-desc">${article.content.replace(/(<([^>]+)>)/gi, "")}</p>
-                        <button class="fav-btn"> <i class="fa-regular fa-bookmark fav-icon"></i></button>
-                    </div>`;
-                }
-            })
-            .join("");
+        .map((article) => {
+            const cardId = `card-${article.id}`;
+            if ((article.index + 1) % 3 === 0) {
+                return `<div class="news-card third-news-card img" data-card-id="${cardId}">
+                <img src="${article.urlToImage}" class="news-img" alt="" />
+                <h1 class="card-title">${article.title}</h1>
+                <button class="fav-btn"> <i class="fa-regular fa-bookmark fav-icon"></i></button>
+                </div>`;
+            } else {
+                return `<div class="news-card" data-card-id="${cardId}">
+                <img src="${article.urlToImage}" class="news-img" alt="" />
+                <h1 class="card-title">${article.title}</h1>
+                <p class="card-desc">${article.content.replace(/(<([^>]+)>)/gi, "")}</p>
+                <button class="fav-btn"> <i class="fa-regular fa-bookmark fav-icon"></i></button>
+                </div>`;
+            }
+        })
+        .join("");
+        updateFavoriteIcons()
     } catch (error) {
         console.error("Data could not be loaded:", error.message);
     }
