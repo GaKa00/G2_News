@@ -67,6 +67,7 @@ document.addEventListener("DOMContentLoaded", function () {
         event.preventDefault();
         const searchQuery = searchBar.value;
         fetchData(searchQuery);
+        
     });
 });
 
