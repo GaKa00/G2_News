@@ -54,7 +54,7 @@ async function fetchData(query) {
                 return `<div class="news-card" data-card-id="${cardId}">
                 <img src="${article.urlToImage}" class="news-img" alt="" />
                 <h1 class="card-title">${article.title}</h1>
-                <p class="card-desc">${article.content.replace(/(<([^>]+)>)/gi, "")}
+                <p class="card-desc">
                         ${getFirstSentence(article.content.replace(/(<([^>]+)>)/gi, ""))}
                         <a href="${article.url}" target="_blank" class="read-more">Read more..</a>
                         </p>
