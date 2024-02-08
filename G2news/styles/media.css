@@ -1,14 +1,15 @@
 @media (min-width: 1000px) {
     .third-news-card h1 {
         font-size: 2rem;
-        color:var(--clr-main-blue);
+        color: #000;
+       
   
      }
       
 }
 @media (min-width: 1200px) {
     .third-news-card h1 {
-        font-size: 5rem;
+        font-size: 2.8rem;
        
      }
       
