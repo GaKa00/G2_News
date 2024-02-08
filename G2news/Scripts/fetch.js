@@ -31,20 +31,33 @@ async function fetchData(query) {
         });
         
         console.log(response.data.articles);
+
+        function getFirstSentence(content) {
+          const sentences = content.split(/[.!?]/);
+          // Take the first sentence
+          const firstSentence = sentences[0];
+          return firstSentence;
+        }
+
         container.innerHTML = articles
         .map((article) => {
             const cardId = `card-${article.id}`;
             if ((article.index + 1) % 3 === 0) {
                 return `<div class="news-card third-news-card img" data-card-id="${cardId}">
                 <img src="${article.urlToImage}" class="news-img" alt="" />
+                        <a href="${article.url}" target="_blank">
                 <h1 class="card-title">${article.title}</h1>
+                        </a>
                 <button class="fav-btn"> <i class="fa-regular fa-bookmark fav-icon"></i></button>
                 </div>`;
             } else {
                 return `<div class="news-card" data-card-id="${cardId}">
                 <img src="${article.urlToImage}" class="news-img" alt="" />
                 <h1 class="card-title">${article.title}</h1>
-                <p class="card-desc">${article.content.replace(/(<([^>]+)>)/gi, "")}</p>
+                <p class="card-desc">${article.content.replace(/(<([^>]+)>)/gi, "")}
+                        ${getFirstSentence(article.content.replace(/(<([^>]+)>)/gi, ""))}
+                        <a href="${article.url}" target="_blank" class="read-more">Read more..</a>
+                        </p>
                 <button class="fav-btn"> <i class="fa-regular fa-bookmark fav-icon"></i></button>
                 </div>`;
             }

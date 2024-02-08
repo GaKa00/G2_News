@@ -24,4 +24,3 @@ menuItems.forEach(
     }
 )
 
-export default menu

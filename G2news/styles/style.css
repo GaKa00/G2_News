@@ -68,8 +68,6 @@ header {
     left: 0;
     right: 0;
     bottom: 60%;
-    border-bottom-left-radius: 5%;
-    border-bottom-right-radius: 5% ;
     z-index: 99;
     background: var(--clr-menu-blue);
     color: #fff;
@@ -81,7 +79,7 @@ header {
 .nav-item {
     position: relative;
   }
-  
+
   .dropdown-content {
     display: none;
     position: absolute;
@@ -115,11 +113,14 @@ header {
 
 .showMenu {
     transform: translateY(0);
+    border-bottom-left-radius: 5%;
+    border-bottom-right-radius: 5% ;
 }
 
 .nav-item, .nav-btn {
     text-decoration: none;
     font-size: 1.3rem;
+    
 }
 .nav-item{
     width: fit-content;
@@ -132,6 +133,9 @@ header {
     font-size: 1.5rem;
     line-height: 1.6;
     margin-left: 3rem;
+}
+.nav-btn:hover{
+    text-decoration: underline;
 }
 
 .searchbar {
@@ -170,3 +174,17 @@ header {
     margin: .5rem;
 }
 
+.read-more {
+   background-color: transparent;
+   border: none;
+   font-size: 1rem;
+   font-weight: 700;
+   color: var(--clr-main-blue); 
+   cursor: pointer; 
+   margin-left: .5rem;
+   
+  }
+  .read-more:hover {
+   text-decoration: underline;
+    
+   }
