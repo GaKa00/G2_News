@@ -33,9 +33,9 @@ async function fetchData(query) {
         console.log(response.data.articles);
 
         function getFirstSentence(content) {
-            const truncatedContent = content.trim().substring(0, 190);
-            const lastSpaceIndex = truncatedContent.lastIndexOf(" ");
-            const firstSentence = lastSpaceIndex !== -1 ? truncatedContent.substring(0, lastSpaceIndex) : truncatedContent;
+            const shortedContent = content.trim().substring(0, 190);
+            const lastSpaceIndex = shortedContent.lastIndexOf(" ");
+            const firstSentence = lastSpaceIndex !== -1 ? shortedContent.substring(0, lastSpaceIndex) : truncatedContent;
             return firstSentence;
           }
 
