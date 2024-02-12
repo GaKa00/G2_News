@@ -33,11 +33,11 @@ async function fetchData(query) {
         console.log(response.data.articles);
 
         function getFirstSentence(content) {
-          const sentences = content.split(/[.!?]/);
-          // Take the first sentence
-          const firstSentence = sentences[0];
-          return firstSentence;
-        }
+            const truncatedContent = content.trim().substring(0, 190);
+            const lastSpaceIndex = truncatedContent.lastIndexOf(" ");
+            const firstSentence = lastSpaceIndex !== -1 ? truncatedContent.substring(0, lastSpaceIndex) : truncatedContent;
+            return firstSentence;
+          }
 
         container.innerHTML = articles
         .map((article) => {
