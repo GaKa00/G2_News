@@ -8,3 +8,5 @@ import './Scripts/favourite.js';
 import "./Scripts/fetch.js";
 
 import './Scripts/asideFetch.js'
+
+import './Scripts/scroll.js'
