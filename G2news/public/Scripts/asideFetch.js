@@ -1,5 +1,6 @@
+import axios from 'axios';
 const asideAPI = '27e03b329cc3446ab9cf92cd1939e2b2';
-const query= 'sport'; 
+const query = 'sport';
 const Link = `https://newsapi.org/v2/everything?q=${query}&domains=bbc.co.uk&apiKey=${asideAPI}`;
 
 const asideContainer = document.querySelector('.aside-news');
@@ -10,7 +11,7 @@ async function fetchAsideData() {
         console.log(response.data.articles);
 
         asideContainer.innerHTML = response.data.articles
-        .filter((article) => article.urlToImage)
+            .filter((article) => article.urlToImage)
             .map((article) => {
                 return `<div class="aside-card">
                     <img src="${article.urlToImage}" alt="" />
@@ -28,6 +29,6 @@ async function fetchAsideData() {
 fetchAsideData();
 
 
-import axios from "axios";
+
 
 
