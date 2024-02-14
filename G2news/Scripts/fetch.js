@@ -4,6 +4,47 @@ const container = document.querySelector(".news-card-container");
 const searchBar = document.querySelector(".search-input");
 const searchBtn = document.querySelector(".search-btn");
 const categories = document.querySelectorAll(".content-category");
+const topNews = document.querySelector(".topNews");
+const homeBtn = document.querySelector(".home");
+
+//Home button = fetches data with an empty query
+homeBtn.addEventListener("click", async function () {
+  try {
+    const query = "";
+    await fetchData(query);
+  } catch (error) {
+    console.error("Data could not be loaded:", error.message);
+  }
+});
+// Top News = fetches data from top-headline
+topNews.addEventListener("click", async function () {
+  const newsLink = `https://newsapi.org/v2/top-headlines?country=gb&apiKey=${newAPI}`;
+
+  try {
+    const response = await fetchTopNews(newsLink);
+    printTopNews(response);
+    console.log(response);
+    console.log(newsLink);
+  } catch (error) {
+    console.error("Data could not be loaded:", error.message);
+  }
+});
+
+async function fetchTopNews(newsLink) {
+  const response = await axios.get(newsLink);
+  return response.data.articles;
+}
+
+function printTopNews(articles) {
+  container.innerHTML = articles
+    .map((article) => {
+      return `<div class="news-card">
+          <h1 class="card-title">${article.title}</h1>
+            <a href="${article.url}" target="_blank" class="read-more">Read more..</a>
+        </div>`;
+    })
+    .join(" ");
+}
 
 categories.forEach((category) => {
   category.addEventListener("click", async function () {
