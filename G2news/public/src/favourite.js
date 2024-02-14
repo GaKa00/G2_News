@@ -8,7 +8,7 @@ function toggleFavourite(event) {
         let favouritesData = JSON.parse(localStorage.getItem('favourites')) || [];
 
         const existingIndex = favouritesData.findIndex(data => data.title === cardTitle);
-        
+
         if (existingIndex !== -1) {
             // if an article with same title exists in LS, remove it! 
             favouritesData.splice(existingIndex, 1);
@@ -19,7 +19,7 @@ function toggleFavourite(event) {
             const cardData = {
                 id: cardId,
                 title: cardTitle,
-                imageUrl: card.querySelector('.news-img') ? card.querySelector('.news-img').src : '', 
+                imageUrl: card.querySelector('.news-img') ? card.querySelector('.news-img').src : '',
                 description: card.querySelector('.card-desc') ? card.querySelector('.card-desc').textContent : ''
             };
             favouritesData.push(cardData);
@@ -52,7 +52,7 @@ export function updateFavoriteIcons() {
 function displayFavourites() {
     const favouritesContainer = document.querySelector('.favourites-card-container');
     const favouritesData = JSON.parse(localStorage.getItem('favourites')) || [];
-    
+
     if (favouritesContainer) {
         favouritesContainer.innerHTML = '';
 
