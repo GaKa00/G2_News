@@ -63,7 +63,7 @@ header {
 } */
 .nav-list {
     position: fixed;
-    transform: translateY(-150%);
+    transform: translateY(-180%);
     top: 0;
     left: 0;
     right: 0;
@@ -140,6 +140,7 @@ header {
 
 .searchbar {
     width: 95%;
+    max-width: 1200px;
     background: rgba(255, 255, 255, 0.2);
     display: flex;
     justify-content: center;
@@ -148,6 +149,8 @@ header {
     border-color: rgba(129, 96, 221);
     border: 1px solid rgba(0, 0, 0, 0.67);
     margin: .7rem;
+    margin-left: auto;
+    margin-right: auto;
     
 }
 .search-input {
