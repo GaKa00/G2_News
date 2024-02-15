@@ -15,3 +15,6 @@
 .fav-btn .fa-solid {
     color: var(--clr-main-blue)
 }
+button:hover {
+    cursor: pointer;
+}

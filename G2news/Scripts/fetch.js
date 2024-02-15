@@ -51,13 +51,13 @@ function printTopNews(articles) {
 }
 
 categories.forEach((category) => {
-  category.addEventListener("click", () => {
-    console.log(category.textContent);
-    const newsCategory = category.textContent;
-    console.log(newsCategory);
-    fetchData(undefined, newsCategory);
+  category.addEventListener("click", async function () {
+   console.log(category.textContent);
+   const newsCategory = category.textContent;
+   console.log(newsCategory);
+   await fetchData(newsCategory);
   });
-});
+ });
 
 async function fetchData(query) {
   try {
