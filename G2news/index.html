@@ -32,16 +32,22 @@
         </button>
       </header>
 
-      
-
       <main class="main">
         <nav class="navbar">
           <ul class="nav-list">
-            <li class="nav-item"><a href="/" class="nav-btn">Home</a></li>
-            <li class="nav-item"><a href="#" class="nav-btn">Top News</a></li>
-            <li class="nav-item"><a href="./favourites.html" class="nav-btn">My News</a></li>
             <li class="nav-item">
-              <a href="#" class="nav-btn">Categories <i class="fa-solid fa-chevron-down"></i> </a>
+              <button type="button" class="nav-btn home">Home</button>
+            </li>
+            <li class="nav-item">
+              <button type="button" class="nav-btn topNews">Top News</button>
+            </li>
+            <li class="nav-item">
+              <button type="button" class="nav-btn">My News</button>
+            </li>
+            <li class="nav-item">
+              <button type="button" class="nav-btn">
+                Categories <i class="fa-solid fa-chevron-down"></i>
+              </button>
               <ul class="dropdown-content">
                 <li class="content-category"><a href="#">Business</a></li>
                 <li class="content-category"><a href="#">Entertainment</a></li>
@@ -67,11 +73,11 @@
             <i class="fa-solid fa-magnifying-glass"></i>
           </button>
         </form>
-        
+
         <div class="content-container">
-        <div class="news-card-container">
-          <!-- Contains elements from each news element imported from api. -->
-        </div>
+          <div class="news-card-container">
+            <!-- Contains elements from each news element imported from api. -->
+          </div>
 
         <aside class="aside-news">
          
@@ -79,7 +85,7 @@
       </div>
     </main>
 
-    <footer class="footer"></footer>
-  </div>
-</body>
+      <footer class="footer"></footer>
+    </div>
+  </body>
 </html>
