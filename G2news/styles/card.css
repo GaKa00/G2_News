@@ -1,10 +1,12 @@
 
 .content-container{
+ background-color: rgba(223, 220, 220, 0.208);
 display: flex;
 flex-direction: row;
 max-width: 1200px;
 margin: auto;
 padding-left: 2rem;
+border-left: 0.5rem solid #004bade7;
 }
 
 .news-card-container, .favourites-card-container{
@@ -12,12 +14,13 @@ padding-left: 2rem;
     flex-direction: column;
     gap:1.5rem;
     margin-right: 2rem;
+    
 }
 .news-card{
     display: flex;
     flex-direction: column;
     justify-content: center;
-    border: 1px solid black;
+    border-bottom: 1px solid black;
     width: 100%;
     height: auto;
     padding: 1rem;
@@ -49,7 +52,7 @@ padding-left: 2rem;
     justify-content: center;
     flex-direction: row;
     align-items: center;
-    border: 1px solid black;
+    border-bottom: 1px solid black;
     width: 100%;
     height: auto;
     padding: 1rem;
