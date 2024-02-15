@@ -9,11 +9,13 @@ padding-left: 2rem;
 border-left: 0.5rem solid #004bade7;
 }
 
+
 .news-card-container, .favourites-card-container{
     display: flex;
     flex-direction: column;
     gap:1.5rem;
     margin-right: 2rem;
+
     
 }
 .news-card{
@@ -95,7 +97,7 @@ border-left: 0.5rem solid #004bade7;
 
 .favourites-card-container{
 max-width: 900px;
-
+background-color: rgba(223, 220, 220, 0.208);
 margin: auto;
-border: #000;
+
 }
